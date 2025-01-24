@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>MyFPGA Landing Page</title>
+
+    <!-- Font Awesome CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- css file link -->
+    <link rel="stylesheet" href="styles.css">
+
+  </head>
+  <body>
+
+    <!-- NAVBAR Section -->
+    <div id="top" class="navbar">
+      <h2 class="title">ECE LABS <i class="fas fa-microchip"></i></h2>
+
+      <!-- Hamburger Menu Icon -->
+      <div class="hamburger" id="hamburger">
+        <i class="fas fa-bars"></i>
+      </div>
+
+      <!-- Navigation Links -->
+      <nav class="nav-links" id="navLinks">
+        <div class="sections">
+          <div class="dropdown">
+            <button class="dropbtn">MyFPGA Overview<i class="fas fa-caret-down"></i></button>
+            <div class="dropdown-content">
+              <a href="#whatIsMyFpga">What is MyFPGA</a>
+              <a href="#howToUseMyFpga">How to Use MyFPGA</a>
+              <a href="#tutorials">Tutorials</a>
+            </div>
+          </div>
+          <div class="dropdown">
+            <button class="dropbtn">Support & Feedback <i class="fas fa-caret-down"></i></button>
+            <div class="dropdown-content">
+              <a href="#faq">FAQ</a>
+              <a href="#feedback">Feedback</a>
+            </div>
+          </div>
+          <div class="dropdown">
+            <button class="dropbtn">Community<i class="fas fa-caret-down"></i></button>
+            <div class="dropdown-content">
+              <a href="#meetTheTeam">Meet The Team</a>
+              <a href="#sponsors">Sponsors</a>
+              <a href="#whatIsNew">Milestones</a>
+            </div>
+          </div>
+        </div>
+        <a href="#login"><button class="nav-loginBtn">Login</button></a>
+      </nav>
+    </div>
+
+    <!-- HERO IMAGE + OVERLAY -->
+    <div class="container">
+      <img class="hero-image" src="./static/HeroPic.webp" alt="Hero Image" />
+      <div class="overlay">
+        <h1>Welcome to MyFPGA</h1>
+        <p>FPGA Platform at My Fingertips</p>
+        <a href="#login"><button class="loginBtn">Login</button></a>
+      </div>
+    </div>
+
+    <!-- LOGIN SECTION -->
+    <div id="login" class="login-section">
+      <!-- Left Side: Login Forms -->
+      <div class="text-container left-text-container">
+        <!-- Purdue Engineering Student Login (Default) -->
+        <div id="purdue-login" class="login-form">
+          <h2>Purdue Student Login</h2>
+          <p class="login-description">
+            Join MyFPGA today and
+            <span id="dynamic-text-purdue"></span><span class="cursor">|</span>
+          </p>
+          <button id="get-started-btn" class="login-btn" >
+            Purdue Login
+          </button>
+          <p class="switch-login">
+            Not a Purdue Engineering Student?
+            <a href="#" id="guestLink" class="switch-link">Click Here For Guest Login</a>
+          </p>
+        </div>
+
+        <!-- Guest Login Form (Initially Hidden) -->
+        <div id="guest-login" class="login-form" style="display: none;">
+          <h2>Guest Login</h2>
+          <p class="login-description">
+            Join MyFPGA today and
+            <span id="dynamic-text-guest"></span><span class="cursor">|</span>
+          </p>
+          <input
+            type="text"
+            id="guestUsername"
+            class="input-field"
+            placeholder="Guest Username"
+          />
+          <input
+            type="password"
+            id="guestPassword"
+            class="input-field"
+            placeholder="Guest Password"
+          />
+          <button id="guest-login-btn" class="login-btn" onclick="doGuestLogin()">
+            Guest Login
+          </button>
+          <p class="switch-login">
+            Are you a Purdue Engineering Student?
+            <a href="#" id="purdueLink" class="switch-link">Click Here For Purdue Login</a>
+          </p>
+        </div>
+      </div>
+
+      <!-- Right Side: Descriptive Text -->
+      <div class="text-container right-text-container">
+        <h2>Why Use MyFPGA?</h2>
+        <p>
+          MyFPGA offers a powerful platform for digital design, enabling students and educators
+          to create, simulate, and test their FPGA designs entirely online.
+        </p>
+        <p>
+          Whether you're learning digital logic, working on embedded systems, or designing
+          complex hardware, MyFPGA provides an easy-to-use interface with advanced tools to
+          help you succeed.
+        </p>
+        <p>Sign up today and start your journey with MyFPGA!</p>
+      </div>
+    </div>
+
+    <!-- WHAT IS MYFPGA SECTION -->
+    <section id="whatIsMyFpga" class="whatIsMyFpgaSection">
+      <div class="mainContentWhatIsMyFpga">
+        <div class="topHalfWhatIsMyFpga">
+          <div class="leftContentWhatIsMyFpga">
+            <h1>What is MyFPGA? <i class="fa-solid fa-circle-info"></i></h1>
+            <p>
+              MyFPGA is an online digital design platform based on
+              <a
+                href="https://www.xilinx.com/products/silicon-devices/fpga/what-is-an-fpga.html"
+                target="_blank"
+                >Field-Programmable-Gate-Array (FPGA)</a
+              >
+              and web technologies initially created by Junfei Li in 2016. It has been used by
+              students and instructors for various courses as follows:
+            </p>
+          </div>
+          <div class="rightContentWhatIsMyFpga">
+            <div id="fadeText" class="fade-item">
+              ECE Summer Camp — MS and HS outreach program introducing digital logic and hardware
+              programming
+            </div>
+          </div>
+        </div>
+
+        <div class="bottomHalfWhatIsMyFpga">
+          <div class="leftContentWhatIsMyFpga">
+            <p>
+              Using a System-on-Chip (SoC) FPGA, including a hard processor interfaced with the
+              FPGA fabric, the platform can also be used in other related courses such as:
+            </p>
+          </div>
+          <div class="rightContentWhatIsMyFpga">
+            <div class="additional-info">
+              <ul>
+                <li>
+                  <strong>Computer Organization and Microprocessors</strong> — Computer systems
+                  course featuring computer organization, ISA, assembly/C/C++/Python
+                  programming, I/O interfacing, Embedded Systems, Hardware, and Software
+                  Co-Designs
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW TO USE MYFPGA SECTION -->
+    <section id="howToUseMyFpga" class="howToUseMyFpgaSection">
+      <button class="prev">&#10094;</button>
+      <button class="next">&#10095;</button>
+      <div class="slider">
+        <!-- Slides -->
+        <div class="slide">
+          <img src="./static/breadboard.png" alt="Breadboard Image" class="slideImage" />
+          <div class="howToOverlay">
+            <h2>Breadboard</h2>
+            <p>Organize circuits on a breadboard with ease and flexibility.</p>
+          </div>
+        </div>
+        <div class="slide">
+          <img src="./static/source.png" alt="Source Image" class="slideImage" />
+          <div class="howToOverlay">
+            <h2>Source</h2>
+            <p>Access the source editor to write and test your code.</p>
+          </div>
+        </div>
+        <div class="slide">
+          <img src="./static/simulate.png" alt="Simulate Image" class="slideImage" />
+          <div class="howToOverlay">
+            <h2>Simulate</h2>
+            <p>Run simulations to verify your design.</p>
+          </div>
+        </div>
+        <div class="slide">
+          <img src="./static/build.png" alt="Build Image" class="slideImage" />
+          <div class="howToOverlay">
+            <h2>Build</h2>
+            <p>Compile and build your design directly on the platform.</p>
+          </div>
+        </div>
+        <div class="slide">
+          <img src="./static/test.png" alt="Test Image" class="slideImage" />
+          <div class="howToOverlay">
+            <h2>Test</h2>
+            <p>Test the functionality of your design.</p>
+          </div>
+        </div>
+        <div class="slide">
+          <img src="./static/lab.png" alt="Lab Image" class="slideImage" />
+          <div class="howToOverlay">
+            <h2>Lab</h2>
+            <p>Access guided lab exercises to deepen your understanding.</p>
+          </div>
+        </div>
+        <div class="slide">
+          <img src="./static/lesson.png" alt="Lessons Image" class="slideImage" />
+          <div class="howToOverlay">
+            <h2>Lessons</h2>
+            <p>Explore lessons to learn FPGA concepts and applications.</p>
+          </div>
+        </div>
+        <div class="slide">
+          <img src="./static/piazza.png" alt="Forums Image" class="slideImage" />
+          <div class="howToOverlay">
+            <h2>Forums</h2>
+            <p>Q & A Discussion Forum. Sign up at Piazza</p>
+          </div>
+        </div>
+        <div class="slide">
+          <img src="./static/help.png" alt="Help Image" class="slideImage" />
+          <div class="howToOverlay">
+            <h2>Help</h2>
+            <p>Join Q&A discussion forums to engage with other users.</p>
+          </div>
+        </div>
+      </div>
+      <div class="slideTimersContainer" id="howToDotsContainer"></div>
+    </section>
+
+    <!-- TUTORIAL SECTION -->
+    <section id="tutorials" class="tutorialSection">
+      <div class="mainContentTutorial">
+        <div class="leftContentTutorial">
+          <h1>Tutorials <i class="fas fa-book"></i></h1>
+          <p>Click on the video links to view the different tutorials available:</p>
+        </div>
+        <div class="rightContentTutorial">
+          <div class="linkCard">
+            <i class="fas fa-microchip"></i>
+            <h3>T1: Logic Gates and Circuits</h3>
+            <p>Learn about logic gates and combinational circuits on MyFPGA.</p>
+            <a
+              >View Tutorial</a
+            >
+          </div>
+          <div class="linkCard">
+            <i class="fas fa-code"></i>
+            <h3>T2: Verilog HDL Design</h3>
+            <p>An introduction to Verilog HDL design using MyFPGA tools.</p>
+              <a
+              >View Tutorial</a
+            >
+          </div>
+          <div class="linkCard">
+            <i class="fas fa-tools"></i>
+            <h3>T3: Breadboard Layout Guide</h3>
+            <p>Guide to breadboard layout on MyFPGA.</p>
+              <a
+              >View Tutorial</a
+            >
+          </div>
+          <div class="linkCard">
+            <i class="fas fa-video"></i>
+            <h3>T4: Breadboard Layout Demo</h3>
+            <p>A video demo on using breadboard layout in MyFPGA.</p>
+            <a
+              >View Tutorial</a
+            >
+          </div>
+          <div class="linkCard">
+            <i class="fas fa-check-square"></i>
+            <h3>T5: Multi-Board Checkout</h3>
+            <p>Learn how to use multi-board checkout and the source page.</p>
+            <a
+              >View Tutorial</a
+            >
+          </div>
+          <div class="linkCard">
+            <i class="fas fa-file-pdf"></i>
+            <h3>ECELabs Tutorial Part 1 & 2</h3>
+            <p>Part 1 on breadboard and Part 2 on diagram design.</p>
+            <a
+              >View Tutorial</a
+            >
+          </div>
+          <div class="linkCard">
+            <i class="fab fa-youtube"></i>
+            <h3>YouTube: Remote FPGA Access</h3>
+            <p>Watch a YouTube video on remote FPGA access for Xilinx.</p>
+            <a>View Tutorial</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section id="faq" class="faqSection">
+      <h1>FAQ <i class="fa-regular fa-circle-question"></i></h1>
+      <div class="faqItem" onclick="toggleFaq(this)">
+        <p>Q1. Is this website safe for me? <i class="fas fa-chevron-down"></i></p>
+        <div class="faqAnswer">
+          <p>
+            Yes. The website uses Google sign-in for authentication. No password or personal
+            information will be used. It uses the https protocol to secure communication
+            between your browser and the server. Also see the answer to Q2.
+          </p>
+        </div>
+      </div>
+      <div class="faqItem" onclick="toggleFaq(this)">
+        <p>Q2. Why did I get a privacy error and not secure warning? <i class="fas fa-chevron-down"></i></p>
+        <div class="faqAnswer">
+          <p>
+            This is because the server uses a self-signed certificate. While it is valid, it is
+            not recognized by the browser. Follow the tutorial on how to install the
+            certificate to your browser.
+          </p>
+        </div>
+      </div>
+      <div class="faqItem" onclick="toggleFaq(this)">
+        <p>Q3. Why did I receive 'Unauthorized user! Redirected to log in page!'? <i class="fas fa-chevron-down"></i></p>
+        <div class="faqAnswer">
+          <p>
+            Please be assured that you are already properly registered with the website if you
+            can see this page. The message only means that you are not recognized by the server
+            at that moment. There are a few reasons: 1) You have been on the server for over 2
+            hours and you need to re-login. 2) The server was down and you need to re-login when
+            it restarts. 3) The web service is reserved by a class and you will need to wait
+            after the class is over. In this case, there will be an announcement on the login
+            page on when the reservation will start and end.
+          </p>
+        </div>
+      </div>
+      <div class="faqItem" onclick="toggleFaq(this)">
+        <p>Q4. Where are my design files? <i class="fas fa-chevron-down"></i></p>
+        <div class="faqAnswer">
+          <p>
+            On MyFPGA, you may find three storage places for your designs as follows:
+            1) Your local computer hard drive. This is the destination for Download or source
+            for Import. 2) Your local browser storage. This is usually invisible to the user.
+            It is used internally to save and load design automatically for you when you switch
+            between pages or when you click on Save. 3) The remote server. Each user has a
+            dedicated and unique directory to store files on the server. Designs will be
+            uploaded from the browser to the server automatically when you Build the designs or
+            when you click on Upload. They can then be retrieved into the browser from the File
+            folder on the upper right section of the design pages.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEEDBACK SECTION -->
+    <section id="feedback" class="feedbackSection">
+      <div class="mainContentFeedback">
+        <div class="leftContentFeedback">
+          <h1>Feedback <i class="fa-regular fa-comments"></i></h1>
+          <div class="linkSection">
+            <a
+              href="https://docs.google.com/forms/d/1EhPEAPznJohP4p2o_9gChOTDvmoIHVbrUVf-YXGICrY"
+              target="_blank"
+            >
+              Survey on MyFPGA Platform
+            </a>
+            <br /><br />
+            <p>Click and view dynamic survey results from users</p>
+          </div>
+        </div>
+
+        <div class="rightContentFeedback">
+          <div class="chartDisplay">
+            <i class="fa-solid fa-chevron-left first-arrow" id="prevBtn"></i>
+            <canvas id="feedbackChart"></canvas>
+            <i class="fa-solid fa-chevron-right second-arrow" id="nextBtn"></i>
+          </div>
+          <div class="surveyText" >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MEET THE TEAM SECTION -->
+    <section id="meetTheTeam" class="meetTheTeamSection">
+      <div class="mainContentTeam">
+        <h1>Meet the Team <i class="fas fa-users"></i></h1>
+        <p>Our team of experts is dedicated to bringing you the best FPGA experience.</p>
+
+        <!-- View Toggle Buttons -->
+        <div class="viewToggle">
+          <button id="carouselViewBtn" class="active">Carousel View</button>
+          <button id="gridViewBtn">Grid View</button>
+        </div>
+
+        <!-- Filter Dropdown -->
+        <div class="filterDropdown">
+          <label for="teamFilter">Filter by Team:</label>
+          <select id="teamFilter">
+            <option value="All">All</option>
+            <option value="Hardware">Hardware Team</option>
+            <option value="Software">Software Team</option>
+          </select>
+        </div>
+
+        <!-- Carousel Container -->
+        <div class="carousel" id="carouselView">
+          <!-- Left Arrow -->
+          <i class="fas fa-chevron-left" id="prevTeamBtn"></i>
+
+          <!-- Team Members Group -->
+          <div class="carouselInner" id="carouselInner"></div>
+
+          <!-- Right Arrow -->
+          <i class="fas fa-chevron-right" id="nextTeamBtn"></i>
+        </div>
+
+        <!-- Grid View Container -->
+        <div class="gridView" id="gridView" style="display: none;">
+          <div class="gridContainer" id="gridContainer"></div>
+        </div>
+
+        <!-- Dots Container -->
+        <div class="dotsContainer" id="dotsContainer"></div>
+      </div>
+    </section>
+
+    <!-- SPONSORS SECTION -->
+    <section id="sponsors" class="sponsorsSection">
+      <div class="mainContentSponsors">
+        <h1>Our Sponsors <i class="fa-solid fa-handshake"></i></h1>
+        <p>We are proud to be supported by our sponsors who make MyFPGA possible.</p>
+        <div class="sponsorContainer">
+          <div class="sponsorCard">
+            <img src="../static/sponsors/purdue_ece_logo.png" alt="purdue_ece_logo" />
+          </div>
+          <div class="sponsorCard">
+            <img src="../static/sponsors/amd_xilinx_logo.png" alt="amd_xilinx_logo" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MILESTONES SECTION -->
+    <section id="whatIsNew" class="timeline-section">
+      <h1>Milestones <i class="fa-regular fa-star"></i></h1>
+      <div class="timeline-container">
+
+        <div class="timeline-item">
+          <div class="timeline-content left">
+            <h3>June 20-July 15, 2022</h3>
+            <p>4th Annual ECE Summer Camps on UTRGV Edinburg Campus.</p>
+          </div>
+          <div class="timeline-point"></div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-point"></div>
+          <div class="timeline-content right">
+            <h3>October 8, 2021</h3>
+            <p>Xilinx University Program hosted a Workshop entitled Integrating Compute Acceleration into Embedded System Design Using Vitic at the 2021 Embedded Systems Week Conference. Xilinx software tools were run from AWS and results designs were verified using remote PYNQ-Z2 boards from ECELabs, including Lab 2 on Embedded Systems, and Lab 3 on PYNQ Framework.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-content left">
+            <h3>June 7-July 2, 2021</h3>
+            <p>3rd Annual ECE Virtual Camp.</p>
+          </div>
+          <div class="timeline-point"></div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-point"></div>
+          <div class="timeline-content right">
+            <h3>May 12, 2021</h3>
+            <p>Xilinx University Program hosted a Workshop entitled From RTL to Compute Acceleration using Vitis and Cloud Computing at the 2021 IEEE International Symposium On Field-Programmable Custom Computing Machines (FCCM 2021). About 40 participants from around the world attended the live zoom sessions. During the first day of the two-day workshop, AWS was used to run Vivado and 20 PYNQ Z2 boards from ECELabs were used to validate the resulting designs of three labs, including Lab 1 on RTL, Lab 2 on Embedded Systems, and Lab 3 on PYNQ Framework.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-content left">
+            <h3>November 14, 2020</h3>
+            <p>Xilinx University Program and ECELabs held a Joint Workshop on Remote Access of FPGA Boards from 9:00am to 12:30pm to help university instructors teach Digital courses during the Covid-19 pandemic. It was cohosted by Parimal and Hugo from Xilinx, Junfei and Cara from ECELabs. We had 19 participants from Grand Valley State University, Morgan State University, New York University, Rensselaer Polytechnic Institute, Rice University, Texas A&M College Station, Texas State University, Texas A&M Kingsville, University of Massachusetts Lowell, University of Houston, University of Texas at Arlington, University of Texas at Austin, University of Texas at Dallas, University of Texas at San Antonio. 20 Basys3 boards were available for use.</p>
+          </div>
+          <div class="timeline-point"></div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-point"></div>
+          <div class="timeline-content right">
+            <h3>August 30, 2020</h3>
+            <p>MyFPGA server has been upgraded with a self-built PC using AMD Threadripper 3970x processor. Jeffrey contributed to this effort.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-content left">
+            <h3>August 14, 2020</h3>
+            <p>MyFPGA supports Nexys A7 board and Xilinx Vivado 19.2 software. Jeffrey contributed to this effort.</p>
+          </div>
+          <div class="timeline-point"></div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-point"></div>
+          <div class="timeline-content right">
+            <h3>July 24, 2020</h3>
+            <p>MyFPGA supports multiple boards. Jeffrey contributed to this effort.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-content left">
+            <h3>June 29, 2020</h3>
+            <p>MyFPGA interface redesigned. Cara contributed to this effort.</p>
+          </div>
+          <div class="timeline-point"></div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-point"></div>
+          <div class="timeline-content right">
+            <h3>June 8-July 3, 2020</h3>
+            <p>2nd Annual Electrical and Computer Engineering Virtual Camps.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-content left">
+            <h3>April 1, 2020</h3>
+            <p>Diagram mode has been added with some shortcut keys. For example, pressing and holding a space bar will keep the Eraser in hover mode and toggle the Select tool between hover and click. You can also type in the logic symbol name in a search field.</p>
+          </div>
+          <div class="timeline-point"></div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-point"></div>
+          <div class="timeline-content right">
+            <h3>March 29, 2020</h3>
+            <p>Breadboard mode has a new pinout tool. Click to show and hide the last part selection. Click on the pinout will show datasheet of the part. To switch to a different part pinout, click on +Part and then make radio click and press Esc.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-content left">
+            <h3>March 23, 2020</h3>
+            <p>DE2 Board has a feature to show and hide the active design. Click on the eye over the FPGA chip.</p>
+          </div>
+          <div class="timeline-point"></div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-point"></div>
+          <div class="timeline-content right">
+            <h3>March 19, 2020</h3>
+            <p>DE2 Board simutaneous multiple-KEY press supported. Enter 1 to 9, a to f (or A to F) as binary coding of the key press. For example, 9 (1001) for KEY3 and KEY0.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-content left">
+            <h3>March 18, 2020</h3>
+            <p>DE2 Board LEDRs editable. Click a red LED light; choose a color from the color picker to change its color; use arrow keys to move it around. Use Space bar to confirm change.</p>
+          </div>
+          <div class="timeline-point"></div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-point"></div>
+          <div class="timeline-content right">
+            <h3>March 16, 2020</h3>
+            <p>Breadboard mode supplied with more parts. 74xx ICs for 3-input and 4-input NAND, AND, NOR are now available.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-content left">
+            <h3>March 9, 2020</h3>
+            <p>2020 FYEE Abstract Accepted.</p>
+          </div>
+          <div class="timeline-point"></div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-point"></div>
+          <div class="timeline-content right">
+            <h3>March 3, 2020</h3>
+            <p>MyFPGA Tutorial on Logic Gates and Combinational Logic Posted.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-content left">
+            <h3>Feb. 29, 2020</h3>
+            <p>2020 ASEE Annual Conference Draft Paper Accepted.</p>
+          </div>
+          <div class="timeline-point"></div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-point"></div>
+          <div class="timeline-content right">
+            <h3>July 08-12, 2019</h3>
+            <p>1st Annual Hardware Programming Summer Camp.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- DISCLAIMER SECTION -->
+    <section id="disclaimer" class="disclaimer-section">
+      <div class="disclaimer-content">
+        <h1>Disclaimer <i class="fa-solid fa-exclamation-triangle"></i></h1>
+        <p>
+          The information and resources provided on this platform are for educational purposes
+          only. While we strive to ensure that all content is accurate and up to date, MyFPGA is
+          not responsible for any hardware or software damage, data loss, or other issues that
+          may arise from the use of this platform. Users assume full responsibility for their
+          actions and the outcomes of any design or code implementation.
+        </p>
+      </div>
+    </section>
+
+    <!-- COPYRIGHT SECTION -->
+    <footer class="copyright-section">
+      <p>&copy; 2024 MyFPGA. All rights reserved.</p>
+    </footer>
+
+    <!-- BACK TO TOP BUTTON -->
+    <a href="#top" class="back-to-top" id="backToTop">
+      <i class="fa-solid fa-arrow-up"></i>
+    </a>
+    <script src="scripts.js"></script>
+  </body>
+</html>

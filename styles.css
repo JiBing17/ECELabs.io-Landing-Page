@@ -1,0 +1,1714 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #ffffff;
+  color: #333;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+/***********************************************************
+ * NAVBAR
+ **********************************************************/
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #f8f8f8;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navbar .title {
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+}
+
+/* Hide Hamburger Menu Icon by Default (Desktop) */
+.hamburger {
+  display: none;
+}
+
+.hamburger {
+  background: none;
+  border: none;
+  color: #333;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+  background-color: #f8f8f8;
+  color: #333;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  font-weight: 600;
+  border-radius: 2rem;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.dropbtn i {
+  font-size: 0.8rem;
+  transition: transform 0.3s ease;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 1;
+  border-radius: 0.5rem;
+  min-width: 180px;
+  padding: 0.5rem 0;
+}
+
+.dropdown-content a {
+  color: #333;
+  padding: 0.75rem 1rem;
+  text-decoration: none;
+  display: block;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-weight: 500;
+  white-space: nowrap;
+  border-radius: 1rem;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #008CBA;
+  color: white;
+  border-color: #008CBA;
+}
+
+.dropdown:hover .dropbtn i {
+  transform: rotate(180deg);
+}
+
+.dropdown-content a.active {
+  background-color: #008CBA;
+  color: white;
+}
+
+.loginBtn {
+  padding: 0.8rem 2rem;
+  font-size: 1.2em;
+  border: .2rem solid white;
+  border-radius: 4px;
+  background-color: transparent;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all .7s ease;
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.8);
+  animation: fadeSlideInFromLeft 1s ease-out 1.2s forwards;
+}
+
+.nav-loginBtn {
+  padding: 0.8rem 2rem;
+  font-size: 1.2em;
+  border-radius: 4px;
+  color: black;
+  font-weight: 600;
+  cursor: pointer;
+  margin-left: .5rem;
+  transition: all .7s ease;
+}
+
+.nav-loginBtn:hover {
+  color: white;
+  background-color: #333;
+}
+
+.loginBtn:hover {
+  background-color: #ffffff;
+  color: #333;
+  border-color: #333;
+}
+
+/*********************************************************** 
+ * HERO SECTION
+ **********************************************************/
+ .container {
+  position: relative;
+  width: 100%;
+  max-height: 100vh;
+  overflow: hidden;
+}
+
+.hero-image {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  filter: brightness(0.8);
+}
+
+/* Keyframe animations */
+@keyframes slideInFromLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeSlideInFromLeft {
+  from {
+    transform: translateX(-30%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Overlay without the text visible initially */
+.overlay {
+  position: absolute;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem 2rem;
+  color: #333;
+  bottom: 0;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  width: 30%;
+  animation: slideInFromLeft 1s ease-out forwards;
+}
+
+/* Text and buttons start hidden */
+.overlay h1,
+.overlay p,
+.overlay button {
+  opacity: 0;
+  transform: translateX(-30%);
+}
+
+/* Slide and fade in each element after the overlay is in place */
+.overlay h1 {
+  font-size: 3.5em;
+  margin: 0;
+  font-weight: 700;
+  color: #f9f9f9;
+  text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.8);
+  animation: fadeSlideInFromLeft 1s ease-out .7s forwards;
+}
+
+.overlay p {
+  font-size: 1.5em;
+  color: #f9f9f9;
+  font-weight: 700;
+  text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.8);
+
+  animation: fadeSlideInFromLeft 1s ease-out 1s forwards;
+}
+
+/***********************************************************
+ * LOGIN SECTION
+ **********************************************************/
+.login-section {
+  display: flex;
+  justify-content: space-between;
+  padding: 3rem 10rem;
+  background-color: #f9f9f9;
+  gap: 2rem;
+}
+
+.text-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  padding: 2rem;
+  height: 500px;
+
+}
+
+.left-text-container {
+  background-color: #ffffff;
+  padding: 2rem 4rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+}
+
+.right-text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.right-text-container p {
+
+    text-align: center;
+}
+
+.login-form {
+  text-align: center;
+}
+
+.login-form h2 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+.login-description {
+  font-size: 1.2em;
+  color: #555;
+  line-height: 1.4;
+  margin-top: 2rem;
+  height: 4rem;
+  overflow: hidden;
+}
+
+.input-field {
+  width: 70%;
+  padding: 0.8rem;
+  margin: 0.5rem 0;
+  font-size: 1.1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+  outline: none;
+}
+
+.login-btn {
+  padding: 0.8rem 2rem;
+  background-color: #008CBA;
+  color: #ffffff;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-btn:hover {
+  background-color: #005f77;
+}
+
+.switch-login {
+  margin-top: 2rem;
+  font-size: 1rem;
+}
+
+.switch-link {
+  color: #008CBA;
+  text-decoration: none;
+}
+
+.switch-link:hover {
+  text-decoration: underline;
+}
+
+/***********************************************************
+ * "WHAT IS MYFPGA" SECTION
+ **********************************************************/
+.whatIsMyFpgaSection {
+  background-color: white;
+  padding: 3rem 10rem;
+  margin: 2rem auto;
+  border-radius: 1rem;
+}
+
+.mainContentWhatIsMyFpga {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.topHalfWhatIsMyFpga,
+.bottomHalfWhatIsMyFpga {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+}
+
+.leftContentWhatIsMyFpga,
+.rightContentWhatIsMyFpga {
+  width: 50%;
+  text-align: center;
+}
+
+.rightContentWhatIsMyFpga {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  padding: 1.5rem;
+  height: 50%;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.leftContentWhatIsMyFpga h1 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.leftContentWhatIsMyFpga p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #333;
+  margin-bottom: 1.5rem;
+  font-weight: 400;
+}
+
+.leftContentWhatIsMyFpga a {
+  color: #008CBA;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.leftContentWhatIsMyFpga a:hover {
+  color: #005f77;
+}
+
+.leftContentWhatIsMyFpga ul {
+  margin-top: 1rem;
+  padding-left: 1.5rem;
+}
+
+.leftContentWhatIsMyFpga li {
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.leftContentWhatIsMyFpga li strong {
+  color: #00796b;
+}
+
+.additional-info {
+  font-size: 1.2rem;
+  color: #3a4a58;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.additional-info ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.additional-info ul li {
+  font-size: 1rem;
+  color: #333;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #e0e0e0;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.additional-info ul li:last-child {
+  border-bottom: none;
+}
+
+#fadeText {
+    transition: all 1s ease-in;
+}
+
+/***********************************************************
+ * "HOW TO USE MYFPGA" SECTION (SLIDER)
+ **********************************************************/
+.howToUseMyFpgaSection {
+  position: relative;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #f9f9f9;
+  padding: 4rem;
+}
+
+.slider {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.slide {
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.slideImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 1rem;
+}
+
+/* Overlay for each slide */
+.howToOverlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 2rem;
+  width: 30%;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+}
+
+/* Smooth fade-in slide animation */
+@keyframes fadeInSlide {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.howToOverlay.animate {
+  animation: fadeInSlide 1s ease-out;
+  opacity: 1;
+}
+
+.howToOverlay h2 {
+  font-size: 2.5rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+.howToOverlay p {
+  font-size: 1.6rem;
+  font-weight: 500;
+  text-align: center;
+  margin: 0.5rem;
+}
+
+.prev,
+.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  border: none;
+  font-size: 24px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 2;
+  transition: background-color 0.3s;
+}
+
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.prev {
+  left: 0.5%;
+}
+
+.next {
+  right: 0.5%;
+}
+
+#howToDotsContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+#howToDotsContainer .slide-timer {
+  position: relative;
+  width: 0.75rem; 
+  height: 0.75rem;
+  margin: 0 0.3125rem; 
+  background-color: #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+#howToDotsContainer .slide-timer.active {
+  width: 6.25rem;
+  border-radius: 0.3125rem;
+  background-color: #e0e0e0;
+}
+
+#howToDotsContainer .slide-timer .fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 0%;
+  background-color: #008CBA;
+  transition: width linear;
+}
+
+/***********************************************************
+ * TUTORIAL SECTION
+ **********************************************************/
+.tutorialSection {
+  background-color: white;
+  padding: 3rem 6rem;
+  margin: 2rem auto;
+  border-radius: 1rem;
+}
+
+.tutorialSection h1 {
+  color: #333;
+  font-size: 2.5rem;
+  margin: 0 0 0.5rem 0;
+  font-weight: 500;
+  text-align: center;
+}
+
+.tutorialSection p {
+  font-size: 1.3rem;
+  color: #333;
+  margin-bottom: 2rem;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.mainContentTutorial {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.rightContentTutorial {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.linkCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  border: 4px solid transparent;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(38, 38, 38, 0.1);
+  border-radius: 10px;
+  padding: 3rem;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+}
+
+.linkCard a {
+  color: #008CBA;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.linkCard a:hover {
+  color: #005f77;
+}
+
+.linkCard i {
+  font-size: 2rem;
+  color: #008CBA;
+  margin-bottom: 1rem;
+}
+
+
+.linkCard h3 {
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.linkCard p {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 1rem;
+}
+
+.linkCard:hover {
+  border: 4px solid #008CBA;
+}
+
+/***********************************************************
+ * FAQ SECTION
+ **********************************************************/
+ .faqSection {
+  background-color: #F9F9F9;
+  padding: 3rem 6rem;
+  margin: 2rem auto;
+  border-radius: 1rem;
+}
+
+.faqSection h1 {
+  color: #333;
+  font-size: 2.5rem;
+  font-weight: 500;
+  margin-bottom: 2rem;
+}
+
+.faqItem {
+  margin: 1.5rem 0;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 0.5rem;
+  cursor: pointer;
+}
+
+.faqItem p {
+  font-size: 1.1rem;
+  font-weight: 400;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: black;
+}
+
+.faqItem i {
+  transition: transform 0.3s ease;
+}
+
+.faqItem.expanded i {
+  transform: rotate(180deg);
+}
+
+.faqAnswer {
+  max-height: 0;
+  opacity: 0;
+  transform: scaleY(0);
+  transform-origin: top;
+  overflow: hidden;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  padding-left: 1rem;
+}
+
+.faqAnswer p {
+  color: #333;
+  opacity: 0.97;
+}
+
+.faqItem.expanded .faqAnswer {
+  max-height: 500px;
+  opacity: 1;
+  transform: scaleY(1); 
+  margin-top: 1rem;
+}
+
+/***********************************************************
+ * FEEDBACK SECTION
+ **********************************************************/
+.feedbackSection {
+  background-color: white;
+  padding: 3rem 6rem;
+  margin: 2rem auto;
+  border-radius: 1rem;
+}
+
+.mainContentFeedback {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.leftContentFeedback {
+  width: 30%;
+}
+
+.leftContentFeedback h1 {
+  color: #333;
+  font-size: 2.5rem;
+  margin: 0 0 1rem 0;
+  font-weight: 500;
+}
+
+.leftContentFeedback .linkSection p {
+  font-size: 1.1rem;
+  color: #555;
+  text-decoration: none;
+  margin: 0;
+}
+
+.leftContentFeedback .linkSection a {
+  font-size: 1.1rem;
+  color: #008cba;
+  text-decoration: none;
+}
+
+.leftContentFeedback .linkSection a:hover {
+  text-decoration: underline;
+}
+
+.rightContentFeedback {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.chartDisplay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 2rem;
+}
+
+.chartDisplay i {
+  font-size: 2.5rem;
+  color: #333;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.chartDisplay i:hover {
+  color: #008cba;
+}
+
+.feedbackDisplay {
+  width: 100%;
+  max-width: 600px;
+  position: relative;
+  overflow: hidden;
+}
+
+.feedbackDisplay img {
+  width: 100%;
+}
+
+#feedbackChart {
+  width: 450px;
+  height: auto;
+}
+
+/***********************************************************
+ * BACK TO TOP BUTTON
+ **********************************************************/
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: linear-gradient(135deg, #00b4db, #0083b0);
+  color: #ffffff;
+  padding: 1.2rem;
+  border-radius: 50%;
+  width: 1.5rem;
+  height: 1.5rem;
+  text-align: center;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+  opacity: 0;
+  transform: scale(0.8);
+  visibility: hidden;
+  transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  transform: scale(1);
+  visibility: visible;
+}
+
+/***********************************************************
+ * SPONSORS SECTION
+ **********************************************************/
+.sponsorsSection {
+  background-color: white;
+  padding: 3rem 10rem;
+  margin: 2rem auto;
+  border-radius: 1rem;
+  text-align: center;
+}
+
+.mainContentSponsors h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #333;
+  font-weight: 500;
+}
+
+.mainContentSponsors p {
+  font-size: 1.3rem;
+  color: #333;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.sponsorContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+  gap: 2rem;
+}
+
+.sponsorCard {
+  background-color: #fff;
+  padding: 1rem 7rem;
+  border: 3px solid black;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.sponsorCard img {
+  width: 8rem;
+  height: 8rem;
+  display: block;
+  object-fit: contain;
+}
+
+/***********************************************************
+ * TIMELINE SECTION (MILSTONES)
+ **********************************************************/
+.timeline-section {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+.timeline-section h1 {
+  font-size: 2.5rem;
+  margin: 5rem 0 0;
+  color: #333;
+}
+
+.timeline-container {
+  position: relative;
+  width: 80%;
+  margin: auto;
+}
+
+.timeline-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem 0;
+  position: relative;
+}
+
+.timeline-item .timeline-content {
+  width: 45%;
+  padding: 1rem;
+  border: 3px solid #008CBA;
+  border-radius: 1rem;
+  background-color: white;
+}
+
+.timeline-content h3 {
+  margin: 0 0 1rem;
+  color: #333;
+  font-weight: bold;
+}
+
+.timeline-content p {
+  margin: 0;
+  color: #555;
+}
+
+.timeline-point {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: #008CBA;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.timeline-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 0.2rem;
+  background-color: #008CBA;
+  z-index: 1;
+  transform: translateX(-50%);
+  left: 50%;
+}
+
+.timeline-item .left {
+  text-align: right;
+  margin-right: auto;
+}
+
+.timeline-item .right {
+  text-align: left;
+  margin-left: auto;
+}
+
+/***********************************************************
+ * DISCLAIMER & COPYRIGHT
+ **********************************************************/
+.disclaimer-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  padding: 1rem;
+  margin: 2rem auto 0;
+  border-radius: 1rem;
+}
+
+.disclaimer-section h1 {
+  color: #333;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.disclaimer-section p {
+  font-size: 1.2rem;
+  color: #555;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.copyright-section {
+  background-color: white;
+  color: #333;
+  padding: 1rem;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.copyright-section p {
+  margin: 0;
+  font-size: 1rem;
+}
+
+/***********************************************************
+ * MEET THE TEAM SECTION
+ **********************************************************/
+.meetTheTeamSection {
+  background-color: #f9f9f9;
+  padding: 2rem 10rem;
+  margin: 2rem auto;
+  text-align: center;
+  border-radius: 1rem;
+}
+
+.mainContentTeam h1 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.mainContentTeam p {
+  font-size: 1.3rem;
+  color: #333;
+  margin-bottom: 1rem;
+  font-weight: 400;
+  font-style: italic;
+}
+.viewToggle button {
+  padding: .5rem 1rem;
+  background-color: white;
+  border: 1.5px solid #333;
+  border-radius: 4px;
+}
+
+.filterDropdown label {
+  font-size: 1rem;
+}
+
+.filterDropdown select {
+  font-size: 1rem;
+  padding: 0.5rem;
+  border: 1px solid #d1d1d1;
+  background-color: #fff;
+  color: #000;
+  border-radius: 3px;
+}
+
+.carousel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  margin-top: 2rem;
+}
+
+.carousel i {
+  font-size: 2.5rem;
+  color: #333;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.carousel i:hover {
+  color: #008cba;
+}
+
+.carouselInner {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  align-items: flex-start;
+  border-top: 2px solid #008CBA;
+  border-bottom: 2px solid #008CBA;
+}
+
+.teamMember {
+  padding: 1.5rem;
+  text-align: center;
+  width: 21rem;
+  height: 25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.teamPfp {
+  border-radius: 50%;
+  width: 10rem;
+  height: 10rem;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+
+.teamMember h3 {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #333;
+  margin: 0;
+}
+
+.teamMember p {
+  font-size: 1.2rem;
+  color: #333;
+  font-style: italic;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.socialLinks a i {
+  font-size: 2rem;
+  color: #008CBA;
+  margin: 0 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.socialLinks a i:hover {
+  color: #005f77;
+}
+
+.dotsContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  margin: 0 5px;
+  background-color: #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dot.active {
+  background-color: #008CBA;
+}
+
+/* Fade-in Animation for Teams */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.teamGroup {
+  display: none;
+  opacity: 0;
+  animation: fadeIn 2s ease forwards;
+}
+
+.teamGroup.fade-in {
+  display: flex;
+}
+
+.gridView {
+  display: none;
+  justify-content: center;
+  width: 100%;
+}
+
+.gridContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  max-width: 1200px;
+}
+
+.filterDropdown {
+  margin: 1rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+/***********************************************************
+ * RESPONSIVE NAVBAR (MOBILE)
+ **********************************************************/
+@media screen and (max-width: 768px) {
+  /* Show Hamburger Menu */
+  .hamburger {
+    display: block;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: #333;
+  }
+
+  /* Hide Navigation Links (turn them into a slide-out) */
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100vh;
+    width: 60%;
+    background-color: #f8f8f8;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 5rem;
+    transition: right 0.3s ease-in-out;
+    z-index: 99;
+  }
+
+  .nav-links.active {
+    right: 0;
+  }
+
+  .nav-links .sections {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .nav-links .dropdown {
+    width: 100%;
+  }
+
+  .nav-links .dropbtn {
+    width: 100%;
+    text-align: left;
+    padding: 1rem;
+    border: none;
+    background: none;
+  }
+
+  .nav-links .loginBtn {
+    width: 100%;
+    margin: 1rem 0;
+    border: 0.2rem solid #333;
+    background-color: #333;
+    color: #fff;
+  }
+}
+
+/***********************************************************
+ * RESPONSIVE OVERLAY
+ **********************************************************/
+@media screen and (max-width: 768px) {
+  .overlay {
+    width: 100%;
+    align-items: center;
+    padding: 1rem;
+  }
+
+  .overlay h1 {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  .overlay p {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .overlay .loginBtn {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    margin: 1rem auto 0 auto;
+  }
+}
+
+/***********************************************************
+ * RESPONSIVE LOGIN SECTION
+ **********************************************************/
+@media screen and (max-width: 1024px) {
+  .login-section {
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+  }
+
+  .text-container {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .login-section {
+    padding: 1rem;
+  }
+
+  .text-container {
+    width: 100%;
+  }
+
+  .login-form h2 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .login-description,
+  .right-text-container p {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .login-btn {
+    width: 100%;
+    padding: 0.8rem;
+    font-size: 1rem;
+    align-self: center;
+  }
+
+  .input-field {
+    font-size: 1rem;
+  }
+
+  .switch-login {
+    text-align: center;
+  }
+}
+
+/***********************************************************
+ * RESPONSIVE "WHAT IS MYFPGA"
+ **********************************************************/
+@media screen and (max-width: 1024px) {
+  .whatIsMyFpgaSection {
+    padding: 3rem 2rem;
+  }
+
+  .topHalfWhatIsMyFpga,
+  .bottomHalfWhatIsMyFpga {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .leftContentWhatIsMyFpga,
+  .rightContentWhatIsMyFpga {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .whatIsMyFpgaSection {
+    padding: 2rem 1rem;
+  }
+
+  .mainContentWhatIsMyFpga {
+    gap: 1.5rem;
+  }
+
+  .leftContentWhatIsMyFpga h1 {
+    font-size: 2rem;
+  }
+
+  .leftContentWhatIsMyFpga p,
+  .rightContentWhatIsMyFpga p {
+    font-size: 1rem;
+  }
+}
+
+/***********************************************************
+ * RESPONSIVE "HOW TO USE" SECTION
+ **********************************************************/
+/* Tablet */
+@media screen and (max-width: 1024px) {
+  .howToUseMyFpgaSection {
+    padding: 2rem 1rem;
+    height: auto;
+  }
+
+  .slider {
+    height: auto;
+  }
+
+  .slide {
+    width: 100%;
+    height: auto;
+  }
+
+  .howToOverlay {
+    width: 70%;
+    padding: 1rem;
+    font-size: 1rem;
+    text-align: center;
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0; 
+  }
+
+  .howToOverlay h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .howToOverlay p {
+    font-size: 1rem;
+  }
+
+  #howToDotsContainer .slide-timer {
+    width: 0.625rem;
+    height: 0.625rem;
+    margin: 0 0.1875rem;
+  }
+
+  .prev,
+  .next {
+    display: none;
+  }
+}
+
+/* Mobile */
+@media screen and (max-width: 768px) {
+  .howToUseMyFpgaSection {
+    padding: 1rem;
+    height: auto;
+  }
+
+  .howToOverlay {
+    width: 60%;
+    padding: 0.8rem;
+    font-size: 0.9rem;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .howToOverlay h2 {
+    font-size: 1.2rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .howToOverlay p {
+    font-size: 0.9rem;
+  }
+
+  #howToDotsContainer .slide-timer {
+    width: 0.5rem;
+    height: 0.5rem;
+    margin: 0 4px;
+  }
+}
+
+/***********************************************************
+ * RESPONSIVE TUTORIAL SECTION
+ **********************************************************/
+@media screen and (max-width: 1024px) {
+  .tutorialSection {
+    padding: 3rem 5rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .tutorialSection {
+    padding: 2rem 1rem;
+  }
+
+  .linkCard {
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+
+/***********************************************************
+ * RESPONSIVE FAQ SECTION
+ **********************************************************/
+@media screen and (max-width: 1024px) {
+  .faqSection {
+    padding: 3rem 5rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .faqSection {
+    padding: 2rem 1rem;
+  }
+}
+
+/***********************************************************
+ * RESPONSIVE FEEDBACK SECTION
+ **********************************************************/
+/* Tablet */
+@media screen and (max-width: 1024px) {
+  .feedbackSection {
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .mainContentFeedback {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .leftContentFeedback {
+    width: 100%;
+    text-align: center;
+  }
+
+  .leftContentFeedback h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .leftContentFeedback .linkSection p {
+    font-size: 1.1rem;
+  }
+
+  .rightContentFeedback {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .chartDisplay {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 1rem;
+  }
+
+  #feedbackChart {
+    width: 100% !important;
+    max-width: 400px;
+    height: auto !important;
+  }
+
+  .surveyText {
+    width: 100%;
+    font-size: 1.1rem;
+    padding: 1rem;
+  }
+}
+
+/* Mobile */
+@media screen and (max-width: 768px) {
+  .feedbackSection {
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .mainContentFeedback {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .leftContentFeedback {
+    width: 100%;
+    text-align: center;
+  }
+
+  .leftContentFeedback h1 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .leftContentFeedback .linkSection p {
+    font-size: 1rem;
+  }
+
+  .rightContentFeedback {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .chartDisplay {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .chartDisplay i {
+    font-size: 2rem;
+    cursor: pointer;
+  }
+
+  #feedbackChart {
+    width: 100% !important;
+    max-width: 300px;
+    height: auto !important;
+    margin: 0 auto;
+  }
+
+  .surveyText {
+    width: 90%;
+    font-size: 1rem;
+    padding: 1rem;
+  }
+}
+
+/***********************************************************
+ * RESPONSIVE MEET THE TEAM SECTION
+ **********************************************************/
+@media screen and (max-width: 1024px) {
+  #nextTeamBtn,
+  #prevTeamBtn {
+    display: none;
+  }
+
+  .meetTheTeamSection {
+    padding: 2rem 1.5rem;
+  }
+
+  .mainContentTeam h1 {
+    font-size: 2rem;
+  }
+
+  .teamMember {
+    width: 200px;
+  }
+
+  .teamMember .teamPfp {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .meetTheTeamSection {
+    padding: 2rem 1rem;
+  }
+
+  .mainContentTeam h1 {
+    font-size: 1.8rem;
+  }
+
+  .teamMember {
+    width: 45%;
+    padding: 0.5rem;
+  }
+
+  .teamMember .teamPfp {
+    width: 100px;
+    height: 100px;
+  }
+}
