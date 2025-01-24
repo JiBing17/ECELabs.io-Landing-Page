@@ -15,8 +15,3 @@ The original purpose of this project was to provide a modern, user-friendly inte
 - **Responsive design:** The layout adjusts gracefully for desktops, tablets, and mobile devices.  
 - **Interactive elements:** Enhanced user experience through JavaScript-driven functionality.  
 - **Modern aesthetics:** Clean, professional visual design utilizing current best practices in web development.
-
-## Getting Started
-
-**Clone the repository:**  
-
