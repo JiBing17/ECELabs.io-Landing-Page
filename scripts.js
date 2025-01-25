@@ -46,13 +46,27 @@ document.querySelectorAll(".nav-links a") .forEach((link) => link.addEventListen
 document.getElementById("guestLink").addEventListener("click", function (e) {
     e.preventDefault();
     document.getElementById("purdue-login").style.display = "none";
-    document.getElementById("guest-login").style.display = "block";
+    document.getElementById("guest-login").style.display = "flex";
 });
 
 document.getElementById("purdueLink").addEventListener("click", function (e) {
     e.preventDefault();
     document.getElementById("guest-login").style.display = "none";
-    document.getElementById("purdue-login").style.display = "block";
+    document.getElementById("purdue-login").style.display = "flex";
+});
+
+const purdueLink = document.getElementById('purdueLink');
+const guestLink = document.getElementById('guestLink');
+const textContainer = document.querySelector('.text-container');
+
+purdueLink.addEventListener('click', (event) => {
+  event.preventDefault();
+  textContainer.style.transform = 'rotateY(0deg)';
+});
+
+guestLink.addEventListener('click', (event) => {
+  event.preventDefault();
+  textContainer.style.transform = 'rotateY(180deg)';
 });
 
 // Mock functions
