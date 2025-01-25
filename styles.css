@@ -1300,19 +1300,19 @@ a {
   .nav-links {
     position: fixed;
     top: 0;
-    right: -100%;
+    left: -100%;
     height: 100vh;
     width: 60%;
     background-color: #f8f8f8;
     flex-direction: column;
     align-items: flex-start;
     padding-top: 5rem;
-    transition: right 0.3s ease-in-out;
+    transition: left 0.3s ease-in-out;
     z-index: 99;
   }
 
   .nav-links.active {
-    right: 0;
+    left: 0;
   }
 
   .nav-links .sections {
@@ -1750,3 +1750,240 @@ a {
     height: 100px;
   }
 }
+
+/* Sponsors Section - Tablet */
+@media screen and (max-width: 1024px) {
+  .sponsorsSection {
+    padding: 2rem 1.5rem;
+    text-align: center;
+  }
+
+  .mainContentSponsors h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .mainContentSponsors p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Center Content with Flexbox */
+  .sponsorContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center; /* Center vertically within each row */
+    gap: 1.5rem;
+  }
+
+  /* Sponsor Card Styling for Tablet */
+  .sponsorCard {
+    padding: 1rem 2rem;
+    width: 45%; /* Adjusts to fit 2 sponsors per row */
+    text-align: center;
+  }
+
+  .sponsorCard img {
+    width: 100px; /* Smaller image size for tablet */
+    height: auto;
+    object-fit: contain;
+  }
+}
+
+/* Sponsors Section - Mobile Phone */
+@media screen and (max-width: 768px) {
+  .sponsorsSection {
+    padding: 2rem 1rem;
+    text-align: center;
+  }
+
+  .mainContentSponsors h1 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .mainContentSponsors p {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Center Content with Flexbox */
+  .sponsorContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center each card horizontally */
+    gap: 1rem;
+  }
+
+  /* Sponsor Card Styling for Mobile */
+  .sponsorCard {
+    width: 80%; /* Centered, slightly reduced width */
+    padding: 1rem;
+    text-align: center;
+  }
+
+  .sponsorCard img {
+    width: 80px; /* Further reduced size for smaller screens */
+    height: auto;
+    object-fit: contain;
+  }
+}
+
+/* What is New Section - Tablet */
+@media screen and (max-width: 1024px) {
+  .timeline-section {
+    padding: 2rem 1.5rem;
+    text-align: center;
+  }
+
+  .timeline-section h1 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .timeline-container {
+    width: 90%;
+    margin: auto;
+  }
+
+  /* Stack timeline items in a column with centered alignment */
+  .timeline-item {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 2rem 0; /* Add spacing between timeline items */
+  }
+
+  .timeline-item .timeline-content {
+    width: 80%; /* Reduced width for better readability */
+    padding: 1rem;
+  }
+
+  .timeline-item .timeline-content h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .timeline-item .timeline-content p {
+    font-size: 1rem;
+  }
+
+  /* Hide the timeline vertical line and points on tablet view */
+  .timeline-point {
+    display: none;
+  }
+
+  .timeline-container::before {
+    display: none;
+  }
+}
+
+/* What is New Section - Mobile Phone */
+@media screen and (max-width: 768px) {
+  .timeline-section {
+    padding: 2rem 1rem;
+    text-align: center;
+  }
+
+  .timeline-section h1 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .timeline-container {
+    width: 100%;
+    margin: auto;
+  }
+
+  .timeline-item {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 1.5rem 0;
+  }
+
+  .timeline-item .timeline-content {
+    width: 90%;
+    padding: 1rem;
+  }
+
+  .timeline-item .timeline-content h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .timeline-item .timeline-content p {
+    font-size: 0.9rem;
+  }
+
+  /* Hide the timeline vertical line and points on mobile view */
+  .timeline-point {
+    display: none;
+  }
+
+  .timeline-container::before {
+    display: none;
+  }
+}
+/* Disclaimer Section - Tablet */
+@media screen and (max-width: 1024px) {
+  .disclaimer-section {
+    padding: 2rem 1.5rem;
+    text-align: center;
+  }
+
+  .disclaimer-section h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .disclaimer-section p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    width: 90%; /* Constrain width for readability */
+    margin: 0 auto;
+  }
+}
+
+/* Disclaimer Section - Mobile Phone */
+@media screen and (max-width: 768px) {
+  .disclaimer-section {
+    padding: 2rem 1rem;
+    text-align: center;
+  }
+
+  .disclaimer-section h1 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .disclaimer-section p {
+    font-size: 1rem;
+    line-height: 1.5;
+    width: 100%; /* Full width for small screens */
+    margin: 0 auto;
+  }
+}
+
+/* Back to Top Button - Tablet */
+@media screen and (max-width: 1024px) {
+  .back-to-top {
+    width: 45px;
+    height: 45px;
+    font-size: 1.1rem;
+    padding: 0.8rem;
+  }
+}
+
+/* Back to Top Button - Mobile Phone */
+@media screen and (max-width: 768px) {
+  .back-to-top {
+    width: 35px;
+    height: 35px;
+    font-size: 0.9rem;
+    padding: 0.6rem;
+  }
+}
+
+
