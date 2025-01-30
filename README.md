@@ -13,5 +13,5 @@ The original purpose of this project was to provide a modern, user-friendly inte
 
 ## Features
 - **Responsive design:** The layout adjusts gracefully for desktops, tablets, and mobile devices.  
-- **Interactive elements:** Enhanced user experience through JavaScript-driven functionality.  
+- **Interactive elements:**  Enhanced user experience through JavaScript-driven functionality, including interactive FAQ accordions, smooth animations, hero image overlays, carousel for team display, etc.
 - **Modern aesthetics:** Clean, professional visual design utilizing current best practices in web development.
